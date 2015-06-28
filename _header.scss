@@ -1,0 +1,43 @@
+//
+// Header stuff
+//
+
+.site-header .wrapper {
+  position: relative;
+}
+
+// Logo
+.logo {
+  @include shift(1);
+  @include transform(translateX(-(em(8))));
+  padding: 1em 0;
+  position: absolute;
+  z-index: 90;
+  display: block;
+  width: 140px;
+  height: 5.2em;
+
+  @include media($from-medium-screen) {
+    width: 180px;
+    height: 5.9em;
+  }
+
+  @include media($from-large-screen) {
+    width: 190px;
+    height: 6.2em;
+  }
+
+  // SVG
+  @include transition(fill .2s ease);
+  fill: $darkgrey;
+}
+
+body {
+  &.light {
+    .logo { fill: white }
+  }
+
+  &.archive-page {
+    .logo { fill: $darkgrey }
+  }
+}

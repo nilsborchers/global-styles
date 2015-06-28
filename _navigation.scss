@@ -1,0 +1,332 @@
+//
+// Styling the main overlay menu
+//
+
+// Nav icon
+.menu-icon {
+  @include transition(background-color, opacity .2s ease);
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: fixed;
+  z-index: 101;
+  top: $small;
+  right: $small;
+  opacity: .8;
+
+  @include media($from-large-screen) {
+    top: $small * 1.4;
+    right: $small * 1.4;
+  }
+
+  #menu-icon {
+    path { fill: white }
+    circle { fill: $darkblue }
+
+    path,
+    circle {
+      @include transition(transform .3s, opacity .05s);
+      @include transform-origin(50% 50%);
+    }
+  }
+
+  &:hover { opacity: 1 }
+
+  &.triggered {
+    opacity: 1;
+
+    #menu-icon {
+      path { fill: $darkblue }
+      circle { fill: white }
+    }
+
+    #menu-icon-bar-1 {
+      transform: translateY(12px) rotate(45deg);
+      -webkit-transform: translateY(12px) rotate(45deg);
+      -moz-transform: translate(7px, 1px) rotate(45deg); // firefox behaves pretty odd in regards of transform-origin ...
+    }
+
+    #menu-icon-bar-2 { opacity: 0 }
+
+    #menu-icon-bar-3 {
+      transform: translateY(-12px) rotate(-45deg);
+      -webkit-transform: translateY(-12px) rotate(-45deg);
+      -moz-transform: translate(4px, 1px) rotate(-45deg); // firefox behaves pretty odd in regards of transform-origin ...
+    }
+  }
+
+  span { display: none }
+
+  &.visible { @include animation(bounceInRight 1s backwards) }
+  &.hidden  { @include animation(bounceOutRight .5s forwards) }
+}
+
+// The glorious main menu
+#main-menu {
+  background-color: rgba($darkblue, .95);
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 100;
+  font-family: $sans-serif;
+  padding-top: $small;
+  overflow: auto;
+
+  &.visible { @include animation(fadeIn .2s backwards) }
+  &.hidden  { @include animation(fadeOut .2s forwards) }
+
+  .logo {
+    @include span-columns(8);
+    @include shift(1);
+    margin-top: $small;
+    margin-bottom: $medium;
+    position: relative;
+    padding: 0;
+    height: 40px;
+
+    svg {
+      width: 140px;
+      fill: white; // chrome
+    }
+
+    path { fill: white } // firefox, no kiddin'..
+
+    @include media($from-big-screen) {
+      margin-bottom: $small * 1.5;
+      height: 55px;
+
+      svg { width: 180px }
+    }
+  }
+
+  .work-navigation,
+  .explore-navigation {
+    @include span-columns(8);
+    @include shift(1);
+    font-size: 1.4em;
+
+    @include media($from-big-screen) {
+      @include span-columns(5);
+    }
+  }
+
+  .explore-navigation {
+    @include media($from-big-screen) {
+      @include shift(0);
+    }
+  }
+
+  .general-navigation {
+    @include span-columns(8);
+    @include shift(1);
+    margin-top: $medium;
+
+    li {
+      float: left;
+      margin-right: $medium;
+      font-size: 1em;
+    }
+  }
+
+  // Contact form in main navigation
+  .contact-form-mainmenu {
+    @include span-columns(10);
+    @include shift(1);
+
+    h4,
+    label { color: white }
+
+    .text-input {
+      color: white;
+      background-color: transparent;
+      border-color: white;
+
+      @include placeholder {
+        color: lighten($darkblue, 12%);
+      }
+
+      &:focus {
+        background-color: rgba(lighten($darkblue, 10%), .2);
+        border-color: $mintgreen;
+      }
+    }
+
+    .form-messages {
+      cursor: pointer;
+    }
+  }
+
+  @include media($from-big-screen) {
+    .contact-form {
+      @include span-columns(5 of 10);
+    }
+
+    .contact-info {
+      @include span-columns(3 of 10);
+      @include shift(1);
+    }
+  }
+
+  .contact-info {
+    color: shade(white, 10%);
+    font-weight: 300;
+
+    a {
+      color: white !important;
+
+      &:after { background-color: $mintgreen !important }
+    }
+
+    h4 { margin: $medium 0 $tiny 0 }
+
+    .hello h4 { margin-top: 0 }
+
+    .phone-contact {
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.nav-block {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin-top: 0;
+    margin-bottom: $tiny;
+
+    @include media($from-big-screen) {
+      min-height: 4.2em;
+    }
+  }
+
+  a,
+  span { display: block }
+
+  a {
+    @include transition(color .1s);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 1;
+
+    @include media($from-big-screen) {
+      font-size: 1.7em;
+      margin-left: -1px;
+    }
+
+    &:hover { color: lighten($turqoise, 10%) }
+  }
+
+  span {
+    margin-top: $micro;
+    font-size: .8em;
+    letter-spacing: .5px;
+    color: $lintgreen;
+    display: none;
+
+    @include media($from-big-screen) {
+      display: block;
+    }
+  }
+
+  .nav-head {
+    min-height: 35px;
+    margin-bottom: $small;
+    position: relative;
+
+    @include media($from-big-screen) {
+      min-height: 70px;
+    }
+
+    @include media($from-large-screen) {
+      margin-bottom: $medium;
+    }
+
+    a { color: $turqoise }
+
+    &:after {
+      @include transition(transform .2s);
+      @include trailing-line($turqoise, 0);
+    }
+
+    &:hover {
+      a { color: lighten($turqoise, 10%) }
+
+      &:after {
+        @include transform(translateX(400%));
+      }
+    }
+  }
+}
+
+// Read more buttons
+.read-more {
+  margin-bottom: $medium;
+}
+
+.read-more-button {
+  background-position: center center;
+  background-size: cover;
+  margin-top: $small;
+
+  &.we-are,
+  &.upcoming-projects {
+    a     { color: $darkgrey }
+    .icon { fill: $darkgrey !important }
+  }
+
+  &.we-are {
+    @include retina-image("/assets/images/nav/nav_mobile_we-are", null, jpg);
+    background-position: 32% center;
+
+    @include media($from-big-screen) {
+      @include retina-image("/assets/images/nav/nav_desktop_we-are", null, jpg);
+      background-position: center center;
+    }
+  }
+
+  &.projects {
+    @include retina-image("/assets/images/nav/nav_mobile_projects", null, jpg);
+    background-position: 32% center;
+
+    a     { color: white }
+    .icon { fill: white !important }
+
+    @include media($from-big-screen) {
+      @include retina-image("/assets/images/nav/nav_desktop_projects", null, jpg);
+      background-position: center center;
+    }
+  }
+
+  &.current-work {
+    @include retina-image("/assets/images/nav/nav_mobile_current-work", null, jpg);
+    background-position: 32% center;
+
+    a     { color: white }
+    .icon { fill: white !important }
+
+    @include media($from-big-screen) {
+      @include retina-image("/assets/images/nav/nav_desktop_current-work", null, jpg);
+      background-position: center center;
+    }
+  }
+
+  @include media($from-large-screen) {
+    width: $stagebox-width;
+
+    .wrapper {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    @include span-columns(10);
+    @include shift(1);
+    padding: $tiny 0;
+  }
+}

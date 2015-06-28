@@ -1,0 +1,12 @@
+//
+// Mixin Library
+//
+
+@mixin trailing-line($color, $bottom) {
+  content: "";
+  position: absolute;
+  bottom: $bottom;
+  width: 15px;
+  height: 2px;
+  background-color: $color;
+}
