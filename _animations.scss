@@ -104,3 +104,27 @@
   }
 }
 
+@include keyframes(fallOff) {
+  0% { opacity: 1 }
+
+  10% {
+    @include transform(translateX(15px));
+    opacity: 1;
+  }
+
+  100% {
+    @include transform(translateX(-2000px));
+    opacity: 0;
+  }
+}
+
+@include keyframes(fallDown) {
+  0%,
+  90%,
+  100%  { @include transition-timing-function(cubic-bezier(0, 0.310, 1.000)) }
+
+  0%    { @include transform(translateY(-2000px)) }
+  90%   { @include transform(translateY(15px)) }
+  100%   { @include transform(translateY(0px)) }
+}
+
