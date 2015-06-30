@@ -132,6 +132,8 @@
     @include span-columns(10);
     @include shift(1);
 
+    form { margin-bottom: $medium }
+
     h4,
     label { color: white }
 
@@ -156,7 +158,10 @@
   }
 
   @include media($from-big-screen) {
-    .contact-form {
+    form { margin-bottom: 0 }
+
+    .contact-form,
+    .form-messages {
       @include span-columns(5 of 10);
     }
 
