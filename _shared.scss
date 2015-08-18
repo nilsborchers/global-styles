@@ -300,10 +300,20 @@ svg.icon {
 
     img {
       position: absolute;
-      top: -100%; left:0; right: 0; bottom: -100%; // fancy vertical centering for image crop
+      top: -100%; left: 0; right: 0; bottom: -100%; // fancy vertical centering for image crop
       margin: auto;
       width: 100%;
     }
+
+    &.cover-vertical img {
+      top: 0; left: -100%; right: -100%; bottom: 0;
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &.with-picture-srcset {
+
   }
 
   &.explore.content-header {
@@ -467,6 +477,39 @@ svg.icon {
         &.col-space-left { @include shift-in-context(5 of 10) }
       }
     }
+  }
+}
+
+// screenshots side by side
+.screenshot {
+  figure img {
+    box-shadow: 0 2px 1px rgba(black, .15);
+  }
+
+  figcaption {
+    font-size: .8em;
+    font-style: italic;
+    position: relative;
+    font-weight: 300;
+    padding-left: $medium;
+    position: relative;
+    top: -5px;
+  }
+
+  &.side-by-side {
+    figure {
+      @include media($from-big-screen) {
+        @include span-columns(6);
+      }
+
+      @include media($from-large-screen) {
+        @include span-columns(7);
+
+        &:first-child { @include shift(-1) }
+        &:last-child { margin-right: -8.5298% }
+      }
+    }
+
   }
 }
 
