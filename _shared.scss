@@ -312,14 +312,6 @@ svg.icon {
     }
   }
 
-  &.with-picture-srcset {
-
-  }
-
-  &.explore.content-header {
-    // @TODO: fix arrow position
-  }
-
   .teaser-text {
     @include span-columns(10);
     @include shift(1);
@@ -464,6 +456,10 @@ svg.icon {
   article {
     @include row();
 
+    &.top-space {
+      margin-top: $medium;
+    }
+
     @include media($from-big-screen) {
       h3,
       div { margin-top: 40px }
@@ -481,9 +477,12 @@ svg.icon {
 }
 
 // screenshots side by side
-.screenshot {
+.screenshots {
+  clear: both;
+
   figure img {
     box-shadow: 0 2px 1px rgba(black, .15);
+    float: none;
   }
 
   figcaption {
@@ -491,10 +490,11 @@ svg.icon {
     font-style: italic;
     position: relative;
     font-weight: 300;
-    padding-left: $medium;
     position: relative;
     top: -5px;
   }
+
+  &.single figure img { max-width: none }
 
   &.side-by-side {
     figure {
