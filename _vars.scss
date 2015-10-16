@@ -1,0 +1,35 @@
+// Vars
+$lightgrey: #e2e2e3;
+$darkgrey:  #2D2D29;
+$darkblue:  #215A6D;
+$turqoise:  #3CA2A2;
+$mintgreen: #92C7A3;
+$lintgreen: #DFECE6;
+
+$sans-serif: 'Oswald', 'League Gothic', sans-serif;
+$serif:      'Merriweather', serif;
+
+// space presets
+$huge:   em(150);
+$large:  em(100);
+$medium: em(50);
+$small:  em(20);
+$tiny:   em(10);
+$micro:  em(5);
+
+// breakpoints
+$only-small-screen:   new-breakpoint(max-width 480px);
+$medium-screen:       new-breakpoint(min-width 481px max-width 768px);
+$from-medium-screen:  new-breakpoint(min-width 481px);
+$big-screen:          new-breakpoint(min-width 769px max-width 1024px);
+$from-big-screen:     new-breakpoint(min-width 769px);
+$from-large-screen:   new-breakpoint(min-width 1025px);
+
+// image box ratios
+$on-small-screen: 60%;
+$on-medium-screen: 50%;
+$on-large-screen: 35%;
+
+// funky stage box size calc
+$stagebox-width: calc(1000px + ((100% - 1000px) / 2)); // calculate the width of the wrapper box plus one side all the way to the edge
+
