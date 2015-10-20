@@ -277,7 +277,7 @@ svg.icon {
       .icon { @include transform(translateY(30%) rotate(270deg)) }
     }
 
-    .wrapper { top: 65% }
+    .wrapper { top: 62% }
 
     .teaser-text {
       @include span-columns(4);
@@ -323,13 +323,12 @@ svg.icon {
 .slideshow,
 .stage-box {
   .wrapper {
+    @include transform(translateY(-50%));
     top: 50%;
     position: absolute;
     width: 100%;
     right: 0;
 
-    @include media($from-medium-screen) { top: 45% }
-    @include media($from-big-screen)    { top: 55% }
     @include media($from-large-screen)  { margin-right: 0 }
   }
 
