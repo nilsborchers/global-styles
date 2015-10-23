@@ -234,6 +234,17 @@ svg.icon {
   }
 }
 
+// figures and images
+figcaption,
+%figcaption {
+  font-size: .8em;
+  font-style: italic;
+  position: relative;
+  font-weight: 300;
+  position: relative;
+  top: -5px;
+}
+
 // stage boxes
 .stage-box {
   background-color: #E6E6E6;
@@ -482,15 +493,6 @@ svg.icon {
   figure img {
     box-shadow: 0 2px 1px rgba(black, .15);
     float: none;
-  }
-
-  figcaption {
-    font-size: .8em;
-    font-style: italic;
-    position: relative;
-    font-weight: 300;
-    position: relative;
-    top: -5px;
   }
 
   &.single figure img { max-width: none }
