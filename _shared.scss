@@ -426,6 +426,15 @@ figcaption,
   }
 }
 
+.image-content {
+  @include span-columns(10 of 12);
+  @include shift(1);
+  text-align: center;
+  margin-bottom: $large;
+
+  img { max-width: 100% }
+}
+
 // text content with headline to the left
 // and p's to the right
 .text-content {
