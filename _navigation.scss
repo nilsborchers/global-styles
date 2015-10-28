@@ -139,7 +139,7 @@
 
     .text-input {
       color: white;
-      background-color: transparent;
+      background-color: darken($darkblue, 3%);
       border-color: white;
 
       @include placeholder {
@@ -147,7 +147,7 @@
       }
 
       &:focus {
-        background-color: rgba(lighten($darkblue, 10%), .2);
+        background-color: darken($darkblue, 5%);
         border-color: $mintgreen;
       }
     }
