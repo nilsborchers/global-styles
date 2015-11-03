@@ -329,6 +329,14 @@ figcaption,
 
     @include media($from-big-screen) { @include span-columns(4) }
   }
+
+  .copyright {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.5;
+  }
 }
 
 .slideshow,
