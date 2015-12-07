@@ -451,6 +451,8 @@ figcaption,
   margin-top: $medium;
   margin-bottom: $medium;
 
+  &.only-headline { margin-bottom: $small }
+
   @include media($from-large-screen) {
     margin-top: $large;
     margin-bottom: $large;
@@ -542,4 +544,8 @@ figcaption,
 
   &.mathias { background-image: url('/assets/images/blog/avatars/avatar-mathias.png')}
   &.nils { background-image: url('/assets/images/blog/avatars/avatar-nils.png')}
+}
+
+.fluid-width-video-wrapper {
+  float: left;
 }
