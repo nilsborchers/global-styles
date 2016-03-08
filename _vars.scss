@@ -27,9 +27,8 @@ $from-large-screen:   new-breakpoint(min-width 1025px);
 
 // image box ratios
 $on-small-screen: 60%;
-$on-medium-screen: 50%;
+$on-medium-screen: 60%;
 $on-large-screen: 35%;
 
 // funky stage box size calc
 $stagebox-width: calc(1000px + ((100% - 1000px) / 2)); // calculate the width of the wrapper box plus one side all the way to the edge
-
