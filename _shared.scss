@@ -140,7 +140,9 @@ svg.icon {
     }
 
     .icon {
-      @include transition(transform .3s ease, fill .5s ease);
+      @include transition-property(transform, fill);
+      @include transition-duration(.3s, .5s);
+      @include transition-timing-function(ease, ease);
       fill: $turqoise;
       margin-right: $micro;
 
@@ -150,7 +152,12 @@ svg.icon {
       }
     }
 
-    span { @include transition(transform .4s .1s ease) }
+    span {
+      @include transition-property(transform);
+      @include transition-duration(.4s);
+      @include transition-delay(.1s);
+      @include transition-timing-function(ease);
+    }
   }
 
   &.with-arrow-right .icon {
@@ -450,6 +457,8 @@ figcaption,
   margin-top: $medium;
   margin-bottom: $medium;
 
+  &.only-headline { margin-bottom: $small }
+
   @include media($from-large-screen) {
     margin-top: $large;
     margin-bottom: $large;
@@ -541,4 +550,8 @@ figcaption,
 
   &.mathias { background-image: url('/assets/images/blog/avatars/avatar-mathias.png')}
   &.nils { background-image: url('/assets/images/blog/avatars/avatar-nils.png')}
+}
+
+.fluid-width-video-wrapper {
+  float: left;
 }

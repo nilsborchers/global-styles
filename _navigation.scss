@@ -25,7 +25,8 @@
 
     path,
     circle {
-      @include transition(transform .3s, opacity .05s);
+      @include transition-property(transform, opacity);
+      @include transition-duration(.3s, .05s);
       @include transform-origin(50% 50%);
     }
   }
